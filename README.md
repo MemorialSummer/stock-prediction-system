@@ -16,7 +16,7 @@
 
 # tips
 
-请于运行前先准备好相关环境。下载好python和requirement.txt内的第三方库。python版本为3.9.13，如需点击run.bat运行，请将python放于D:/stock-prediction-system/python目录下再添加路径
+请于运行前先准备好相关环境。下载好python和requirement.txt内的第三方库。python版本为3.9.13，如需点击run.bat运行，请将python放于D:/stock-prediction-system/python目录下再将该python添加至路径，或者修改bat中的python路径至你所安装的路径。
 
 
 
