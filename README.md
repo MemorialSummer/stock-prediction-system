@@ -16,7 +16,7 @@
 
 # tips
 
-请于运行前先准备好相关环境。下载好python和requirement.txt内的第三方库。在python文件夹内安装的是下载好的含所有第三方库的python解释器，可以考虑添加到PATH中使用。如不需要可以删除。
+请于运行前先准备好相关环境。下载好python和requirement.txt内的第三方库。python版本为3.9.13，如需点击run.bat运行，请将python放于D:/stock-prediction-system/python目录下再添加路径
 
 
 
