@@ -1,0 +1,28 @@
+/* login.html的样式 */
+body{
+    background-image: url('background.jpg');
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+}
+.loginCard{
+    width: fit-content;
+    padding:20px 40px; 
+    margin:200px auto;
+    border-radius: 7px;
+    background-color: darkgrey;
+    opacity: 0.9;
+    box-shadow: 2px 2px 10px 1px rgb(206, 206, 206);
+}
+.loginCard .logo{
+    margin:0 auto;
+    width: 85px;
+    height: 85px;
+    transform: translateY(-60px);
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px 1px rgb(206, 206, 206);
+}
+.loginCard .logo img{
+    width: 100%;
+}   

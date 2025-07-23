@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>股票价格预测</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <!-- 引入Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <!-- 引入自定义CSS -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+</head>
+<body>
+    <header>
+        <h1>股票价格预测系统</h1>
+        <p>请输入您想要预测的股票代码和预测方法</p>
+    </header>
+    <section>
+        <form id="predictionForm">
+            <input type="text" name="stock_code" placeholder="股票代码" required>
+            <!-- LSTM预测按钮 -->
+            <button type="button" onclick="submitPrediction('lstm_model')" class="prediction-btn">LSTM预测</button>
+            <!-- ARIMA预测按钮 -->
+            <button type="button" onclick="submitPrediction('arima_model')" class="prediction-btn">ARIMA预测</button>
+            <!-- 基础RNN预测按钮 -->
+            <!-- <button type="button" onclick="submitPrediction('rnn_model')" class="prediction-btn">基础RNN预测</button> -->
+        </form>
+        <div id="prediction_result"></div>
+    </section>
+    <footer>
+        <p>&copy;2024股票价格预测系统</p>
+    </footer>
+    <!-- 引入jQuery和Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- 引入自定义JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function submitPrediction(model) {
+            var stockCode = document.querySelector('input[name="stock_code"]').value;
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ stock_code: stockCode, model: model })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById('prediction_result').textContent = 'Prediction: ' + data.prediction;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // 为表单添加事件监听器以防止默认提交行为
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+    </script>  
+</body>
+</html>

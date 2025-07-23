@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+tensorflow
+matplotlib
+flask
+datetime
+tushare
+mplfinance
+seaborn
+statsmodels
+keras

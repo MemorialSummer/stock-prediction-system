@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>股票信息展示</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+        #stock-table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- 表单让用户输入股票代码 -->
+        <form action="/stock_info" method="get">
+            <div class="form-group">
+                <label for="stockCode" class="font-weight-bold">输入股票代码:</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-calculator"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="stockCode" name="stock_code" placeholder="例：600000" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+                <i class="fas fa-search"></i> 获取股票信息
+            </button>
+        </form>
+        
+        <form action="/kline" method="get">
+            <div class="form-group">
+                <label for="stockCode" class="font-weight-bold">输入股票代码:</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-calculator"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="stockCode" name="stock_code" placeholder="例：600000" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+                <i class="fas fa-search"></i> 获取股票K线图
+            </button>
+        </form>
+
+        <!-- 展示股票信息的表格 -->
+        <div id="stock-table">
+            {{ stock_table|safe }}
+        </div>
+
+
+
+    </div>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+    <script>
+        // 简单的JavaScript交互示例
+        document.getElementById('submitBtn').addEventListener('click', function(event){
+            event.preventDefault();
+            // 这里可以添加一个加载动画的显示逻辑
+            alert('股票信息获取中，请稍候...');
+            // 然后正常提交表单
+            this.form.submit();
+        });
+    </script>
+</body>
+</html>

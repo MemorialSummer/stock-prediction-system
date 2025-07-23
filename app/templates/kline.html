@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>K线图显示</title>  
+    <!-- 引入外部CSS文件 -->  
+    <style>
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 20px;  
+            background-color: #f5f5f5;  
+        }  
+    </style>
+</head>  
+<body>  
+    <div class="container">  
+        <h1>K线图显示</h1>  
+        <img id="kline-img" src="{{ url_for('static', filename='output.png') }}" alt="K线图">  
+    </div>  
+</body>  
+</html>
